@@ -41,8 +41,15 @@ h1 {
 .city-results {
   padding: 20px;
   margin-top: 50px;
+  min-height: 320px;
 }
 
 .forecast {
   padding: 20px;
+}
+
+.new-forecast {
+  background-color: #137afc;
+  color: white;
+  padding: 10px;
 }

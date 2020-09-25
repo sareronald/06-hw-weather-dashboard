@@ -64,21 +64,30 @@
         <div class="col-md-8">
           <article class="card city-results">
             <h3>Today's weather in...</h3>
-            <div class="city"></div>
-            <div id="todays-date"></div>
-            <div class="temp"></div>
-            <div class="humidity"></div>
-            <div class="wind"></div>
-            <div class="uvIndex"></div>
+            <div id="city"></div>
+            <span id="todays-date"></span>
+            <div id="todays-icon"></div>
+            <div id="temp"></div>
+            <div id="humidity"></div>
+            <div id="wind"></div>
+            <div id="uv-index"></div>
           </article>
 
           <!-- REsults of searched city's weather 5-day forcast will go here -->
-          <div class="forecast row">
-            <h3>5-Day Forecast:</h3>
+          <div class="row">
+            <h3 class="forecast"></h3>
           </div>
           <div class="row">
             <div class="col-md-3">
-              <article class="card forecast">
+              <article class="card new-forecast">
+                <div id="forecast-date"></div>
+                <div id="forecast-symbol"></div>
+                <div id="forecast-temp"></div>
+                <div id="forecast-humidity"></div>
+              </article>
+            </div>
+            <div class="col-md-3">
+              <article class="card new-forecast">
                 <div class="forecast-date"></div>
                 <div class="forecast-symbol"></div>
                 <div class="forecast-temp"></div>
@@ -86,7 +95,7 @@
               </article>
             </div>
             <div class="col-md-3">
-              <article class="card forecast">
+              <article class="card new-forecast">
                 <div class="forecast-date"></div>
                 <div class="forecast-symbol"></div>
                 <div class="forecast-temp"></div>
@@ -94,7 +103,7 @@
               </article>
             </div>
             <div class="col-md-3">
-              <article class="card forecast">
+              <article class="card new-forecast">
                 <div class="forecast-date"></div>
                 <div class="forecast-symbol"></div>
                 <div class="forecast-temp"></div>
@@ -102,15 +111,7 @@
               </article>
             </div>
             <div class="col-md-3">
-              <article class="card forecast">
-                <div class="forecast-date"></div>
-                <div class="forecast-symbol"></div>
-                <div class="forecast-temp"></div>
-                <div class="forecast-humidity"></div>
-              </article>
-            </div>
-            <div class="col-md-3">
-              <article class="card forecast">
+              <article class="card new-forecast">
                 <div class="forecast-date"></div>
                 <div class="forecast-symbol"></div>
                 <div class="forecast-temp"></div>
@@ -122,11 +123,6 @@
       </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
-      integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
-      crossorigin="anonymous"
-    ></script>
     <script src="script.js"></script>
   </body>
 </html>
