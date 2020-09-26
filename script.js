@@ -17,6 +17,7 @@ function addCityToList(event) {
   div.classList.add("card-body");
   div.innerHTML = newLocation;
   cities.push(newLocation);
+  locationInput.value = "";
   localStorage.setItem("city-names", JSON.stringify(cities));
   currentCity = newLocation;
   citiesContainer.append(div);
@@ -33,7 +34,6 @@ if (storedCities.length > 0) {
   cities = storedCities;
   // append the last storedCities on to page
   citiesContainer.append(storedCities.slice(-1)[0]);
-  // how do I get these to display as cards - like when I search them?
 }
 console.log(cities);
 
@@ -96,7 +96,16 @@ function getWeather() {
           console.log(queryURLuv);
           console.log(response);
           // Transfer content to HTML
-          $("#uv-index").text("UV Index: " + response.value);
+          var uvIndex = response.value;
+          $("#uv-index").text("UV Index: " + uvIndex);
+
+          // if (uvIndex <= 4) {
+          //   uvIndex.setAttribute("class", "badge badge-success");
+          // } else if (uvIndex <= 7) {
+          //   uvIndex.setAttribute("class", "badge badge-warning");
+          // } else {
+          //   uvIndex.setAttribute("class", "badge badge-danger");
+          // }
         });
 
       $();
@@ -127,32 +136,103 @@ function getForecast() {
         var newCity = $("<div>");
         newCity.attr("data-name", city[i]);
         newCity.text(city[i]);
+        console.log(forecastEl);
         $(".forecast").html("<h3>" + "5-Day Forecast: " + "</h3>");
-        $("#forecast-date1").text(response.list[0].dt_txt);
-        $("#forecast-symbol1").html(
-          "<img src='https://openweathermap.org/img/wn/" +
-            response.list[0].weather.icon +
-            "@2x.png)>'"
-        );
-        var tempF = Math.round(response.list[0].main.temp - 273.15);
-        $("#forecast-temp1").text("Temp:" + tempF + "&degC");
-        $("#forecast-humidity1").text(
-          "Humidity:" + response.list[0].main.humidity + "%"
-        );
-        // I initially had the for statement here: this is the rest of what I had
-
-        $();
       }
+      // card #1
+      var tempF = Math.round(response.list[9].main.temp - 273.15);
+      $("#forecast-temp1").text("Temp: " + tempF + " C");
+      $("#forecast-humidity1").text(
+        "Humidity: " + response.list[9].main.humidity + "%"
+      );
+      $("#forecast-date1").text(response.list[9].dt_txt);
+      $("#forecast-symbol1").html(
+        "<img src='https://openweathermap.org/img/wn/" +
+          response.list[9].weather.icon +
+          "@2x.png)>'"
+      );
+      var tempF = Math.round(response.list[9].main.temp - 273.15);
+      $("#forecast-temp1").text("Temp: " + tempF + " C");
+      $("#forecast-humidity1").text(
+        "Humidity: " + response.list[9].main.humidity + "%"
+      );
+
+      // card #2
+      var tempF = Math.round(response.list[17].main.temp - 273.15);
+      $("#forecast-temp2").text("Temp: " + tempF + " C");
+      $("#forecast-humidity2").text(
+        "Humidity: " + response.list[17].main.humidity + "%"
+      );
+
+      $("#forecast-date2").text(response.list[17].dt_txt);
+      $("#forecast-symbol2").html(
+        "<img src='https://openweathermap.org/img/wn/" +
+          response.list[17].weather.icon +
+          "@2x.png)>'"
+      );
+      var tempF = Math.round(response.list[17].main.temp - 273.15);
+      $("#forecast-temp2").text("Temp: " + tempF + " C");
+      $("#forecast-humidity2").text(
+        "Humidity: " + response.list[17].main.humidity + "%"
+      );
+
+      // card #3
+      var tempF = Math.round(response.list[25].main.temp - 273.15);
+      $("#forecast-temp3").text("Temp: " + tempF + " C");
+      $("#forecast-humidity3").text(
+        "Humidity: " + response.list[25].main.humidity + "%"
+      );
+
+      $("#forecast-date3").text(response.list[25].dt_txt);
+      $("#forecast-symbol3").html(
+        "<img src='https://openweathermap.org/img/wn/" +
+          response.list[25].weather.icon +
+          "@2x.png)>'"
+      );
+      var tempF = Math.round(response.list[25].main.temp - 273.15);
+      $("#forecast-temp3").text("Temp: " + tempF + " C");
+      $("#forecast-humidity3").text(
+        "Humidity: " + response.list[25].main.humidity + "%"
+      );
+
+      // card #4
+      var tempF = Math.round(response.list[33].main.temp - 273.15);
+      $("#forecast-temp4").text("Temp: " + tempF + " C");
+      $("#forecast-humidity4").text(
+        "Humidity: " + response.list[33].main.humidity + "%"
+      );
+
+      $("#forecast-date4").text(response.list[33].dt_txt);
+      $("#forecast-symbol4").html(
+        "<img src='https://openweathermap.org/img/wn/" +
+          response.list[33].weather.icon +
+          "@2x.png)>'"
+      );
+      var tempF = Math.round(response.list[33].main.temp - 273.15);
+      $("#forecast-temp4").text("Temp: " + tempF + " C");
+      $("#forecast-humidity4").text(
+        "Humidity: " + response.list[33].main.humidity + "%"
+      );
+
+      // card #5
+      var tempF = Math.round(response.list[39].main.temp - 273.15);
+      $("#forecast-temp5").text("Temp: " + tempF + " C");
+      $("#forecast-humidity5").text(
+        "Humidity: " + response.list[39].main.humidity + "%"
+      );
+
+      $("#forecast-date5").text(response.list[39].dt_txt);
+      $("#forecast-symbol5").html(
+        "<img src='https://openweathermap.org/img/wn/" +
+          response.list[39].weather.icon +
+          "@2x.png)>'"
+      );
+      var tempF = Math.round(response.list[39].main.temp - 273.15);
+      $("#forecast-temp5").text("Temp: " + tempF + " C");
+      $("#forecast-humidity5").text(
+        "Humidity: " + response.list[39].main.humidity + "%"
+      );
+
+      $();
     });
 }
-
-// put this into an event handler to collect the forecasts
-// function addForcastToList(event){
-//   event.presentDefault();
-//   var newForecast = document.querySelector(".new-forecast");
-//   var div = document.createElement("div");
-//   div.classList.add("card-body");
-//   div.innerHTML=();
-//  localStorage.setItem()
-
-// }
