@@ -96,16 +96,15 @@ function getWeather() {
           console.log(queryURLuv);
           console.log(response);
           // Transfer content to HTML
-          var uvIndex = response.value;
+          var uvIndex = parseInt(response.value);
           $("#uv-index").text("UV Index: " + uvIndex);
-
-          // if (uvIndex <= 4) {
-          //   uvIndex.setAttribute("class", "badge badge-success");
-          // } else if (uvIndex <= 7) {
-          //   uvIndex.setAttribute("class", "badge badge-warning");
-          // } else {
-          //   uvIndex.setAttribute("class", "badge badge-danger");
-          // }
+          if (uvIndex <= 4) {
+            $("#uvIndex").attr("style", "background-color: green;");
+          } else if (uvIndex <= 7) {
+            $("#uvIndex").attr("style", "background-color: yellow;");
+          } else {
+            $("#uvIndex").attr("style", "background-color: red;");
+          }
         });
 
       $();

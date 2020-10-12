@@ -51,5 +51,9 @@ h1 {
 .new-forecast {
   background-color: #137afc;
   color: white;
-  padding: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 12px;
+  height: 150px;
+  width: 120px;
 }
